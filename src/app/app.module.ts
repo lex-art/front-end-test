@@ -1,24 +1,27 @@
+import { AuthInterceptorService } from './core/interceptor/auth-interceptor.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './component/home/home.component';
-import { NosotrosComponent } from './component/nosotros/nosotros.component';
-import { ListProductComponent } from './component/list-product/list-product.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    NosotrosComponent,
-    ListProductComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

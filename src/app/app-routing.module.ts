@@ -1,16 +1,22 @@
-import { NosotrosComponent } from './component/nosotros/nosotros.component';
-import { HomeComponent } from './component/home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'nosotros', component: NosotrosComponent },
-  { path: '**', pathMatch:'full', redirectTo: 'home'}
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/home/home.module').then((m) => m.HomeModule),
+  },
+  { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
