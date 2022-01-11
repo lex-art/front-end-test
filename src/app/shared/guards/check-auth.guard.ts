@@ -1,3 +1,4 @@
+import { AuthService } from '../../services/auth.service';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -12,11 +13,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class CheckAuthGuard implements CanActivate {
-  constructor(private router: Router) {}
-
-  redirect(flag: boolean) {
-    if (!flag) this.router.navigateByUrl('/auth/login');
-  }
+  constructor(private router: Router, private checkAuth: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -26,9 +23,12 @@ export class CheckAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    //TODO: check jwb is valid in server
-    let token_acces: string | null = window.localStorage.getItem('token');
-    this.redirect(!!token_acces)
-    return !!token_acces;
+    const isLogued: boolean = this.checkAuth.isAuthenticated();
+    
+    if (isLogued) return isLogued;
+    else {
+      this.router.navigateByUrl('/auth/login');
+      return isLogued;
+    }
   }
 }

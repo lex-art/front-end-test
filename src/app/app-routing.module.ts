@@ -1,5 +1,7 @@
+import { LandingPageComponent } from './modules/home/landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CheckAuthGuard } from './shared/guards/check-auth.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +12,12 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./modules/home/home.module').then((m) => m.HomeModule),
+      import('./modules/app/app.module').then((m) => m.AppModule),
+    canActivate: [CheckAuthGuard],
+  },
+  {
+    path: 'home',
+    component: LandingPageComponent,
   },
   { path: '**', pathMatch: 'full', redirectTo: '/' },
 ];
