@@ -1,3 +1,4 @@
+import { LayoutComponent } from './layout/layout.component';
 import { LandingPageComponent } from './modules/home/landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,8 +12,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () =>
-      import('./modules/app/app.module').then((m) => m.AppModule),
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./modules/app/app.module').then((m) => m.AppModule),
+      },
+    ],
     canActivate: [CheckAuthGuard],
   },
   {

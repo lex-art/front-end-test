@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UserService, User } from '../models/auth/user';
+import { UserService, User } from '../models/auth/user.type';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({

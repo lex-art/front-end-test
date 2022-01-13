@@ -1,0 +1,11 @@
+.left-sidebar {
+    background: purple;
+    color: aliceblue;
+    height: 100vh;
+    width: 250px;
+  /*   position: absolute; */
+    top: 0px;
+    top: 0px;
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.25);
+    transition: 0.5s ease-in;
+}

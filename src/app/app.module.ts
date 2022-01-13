@@ -5,11 +5,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LayoutComponent } from './layout/layout.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
-  ],
+    AppComponent,
+    LayoutComponent,
+    HeaderComponent,
+    SidebarComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
