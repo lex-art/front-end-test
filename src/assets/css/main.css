@@ -1,25 +1,217 @@
 @font-face {
-    font-family: 'Roboto-Regular';
-    src: url("../fonts/Roboto-Regular.ttf");
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
 }
 * {
-    font-family: 'Roboto-Regular', sans-serif;
+  font-family: "Roboto-Regular", sans-serif;
 }
 body {
-    margin: 0 !important;
-    width: 100vw;
-    height: 100vh;
-    background: #EFEFEF;
-    color: #262626;
-    
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #efefef;
+  color: #111;
+  box-sizing: border-box;
 }
 
-.main-wrapper {
-    max-width: 1920px;
-    margin-left: auto;
-    margin-right: auto;
+/* Basic layout */
+/* Asigne instrucciones de cuadrícula a nuestro contenedor de cuadrícula principal, móvil primero (oculte la navegación lateral) */
+.grid-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: "header" "main" "footer";
 }
 
-.container-header-aside {
-    display: flex;
+.menu-icon {
+  position: fixed; /* Debe permanecer visible para todos los desplazamientos móviles */
+  display: flex;
+  top: 5px;
+  left: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #dadae3;
+  border-radius: 50%; 
+  z-index: 1;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.header__menu {
+  display: block;
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  background: url(../icons/menu.svg) no-repeat;
+}
+
+.header__menu:active {
+  transform: scale(0.8);
+}
+/* A cada elemento secundario su nombre de cuadrículae */
+.header {
+  grid-area: header;
+  background-color: #648ca6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 100%;
+}
+/* Haz espacio para el icono del menú en el móvil */
+.header__search {
+  margin-left: 42px;
+}
+
+.sidenav {
+  grid-area: sidenav;
+  background-color: #394263;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 240px;
+  position: fixed;
+  overflow-y: auto;
+  transform: translateX(-245px);
+  transition: all 0.6s ease-in-out;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 2; /* Necesita sentarse encima del ícono del menú de hamburguesas */
+}
+
+.sidenav-active {
+  transform: translateX(0);
+}
+
+.sidenav__close-icon {
+  position: absolute;
+  color: #ddd;
+  visibility: visible;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.sidenav__brand-close {
+  display: block;
+  width: 15px;
+  height: 15px;
+  background: url(../icons/close.svg) no-repeat;
+}
+
+.sidenav__brand-close:active {
+  transform: scale(0.8);
+}
+.sidenav__list {
+  padding: 0;
+  margin-top: 85px;
+  list-style-type: none;
+}
+
+.sidenav__list-item {
+  padding: 20px 20px 20px 40px;
+  color: #ddd;
+}
+
+.sidenav__list-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.main {
+  grid-area: main;
+  background-color: #8fd4d9;
+}
+
+.main-header {
+  display: flex;
+  background-color: #e3e4e6;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px;
+  height: 150px;
+  color: slategray;
+}
+
+.main-overview {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  grid-auto-rows: 94px;
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.overviewcard {
+  background-color: #d3d3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.main-cards {
+  column-count: 1;
+  column-gap: 20px;
+  margin: 20px;
+}
+.card {
+  background-color: #82bef6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid;
+  padding: 24px;
+  box-sizing: border-box; /* investigar que hace esta onda???? */
+}
+
+/* Forzar alturas variables para simular contenido dinámico */
+.card:first-child {
+  height: 845px;
+}
+.card:nth-child(2) {
+  height: 200px;
+}
+.card:nth-child(3) {
+  height: 265px;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #648ca6;
+  height: 100%;
+}
+
+/* Estilos no móviles, punto de interrupción de 750 px */
+@media only screen and (min-width: 46.875em) {
+  /* Mostrar la navegación lateral */
+  .grid-container {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: "sidenav header" "sidenav main" "sidenav footer";
+  }
+
+  .header__search {
+    margin-left: 0;
+  }
+
+  .sidenav {
+    position: relative;
+    transform: translateX(0);
+  }
+
+  .sidenav__close-icon {
+    visibility: hidden;
+  }
+}
+/* Punto de interrupción de pantallas medianas (1050px) */
+@media only screen and (min-width: 65.625) {
+  /* Divide las main cards en dos columnas */
+  .main-cards {
+    column-count: 2;
+  }
 }

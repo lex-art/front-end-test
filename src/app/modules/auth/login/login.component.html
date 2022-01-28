@@ -1,12 +1,37 @@
-<p>login works!</p>
-<form [formGroup]="formLogin" (ngSubmit)="onLogin()">
-    <div>
-        <label for="email">Usuario</label>
-        <input type="email" placeholder="ingrese correo" formControlName="email">
+<div class="grid-container-auth">
+    <header class="container-header-login">
+        <div>logo</div>
+        <div>
+            <nav>
+                <ul>
+                    <li>Inico</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container-login">
+        <!-- <app-header></app-header> -->
+        <form [formGroup]="formLogin"class="card-login"  (ngSubmit)="onLogin()">
+            <div class="container-form-login" >
+                <div class="form-control">
+                <p>Iniciar sesión</p>
+                </div>
+                <div class="form-control-input">
+                    <label class="label-form" for="email">Usuario</label>
+                    <input class="input-form" type="email" placeholder="ingrese correo" formControlName="email">
+                </div>
+                <div class="form-control-input">
+                    <label  class="label-form" for="pass">contraseña</label>
+                    <input  class="input-form" type="password" placeholder="ingrese contraseña" formControlName="password">
+                </div>
+                <div class="form-control">
+                    <button class="button-form" type="submit">Enviar</button>
+                </div>
+                <div class="form-control">
+                <p>¿Olvidaste tu contraseña?</p>
+            </div>
+            </div>
+        </form>
     </div>
-    <div>
-        <label for="pass">contraseña</label>
-        <input type="password" placeholder="ingrese contraseña" formControlName="password">
-    </div>
-    <button type="submit">Enviar</button>
-</form>
+
+</div>

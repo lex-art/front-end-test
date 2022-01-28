@@ -16,17 +16,22 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        //pathMatch: 'full',
         loadChildren: () =>
-          import('./modules/app/app.module').then((m) => m.AppModule),
+          import('./modules/application/application.module').then((m) => m.ApplicationModule),
       },
     ],
-    canActivate: [CheckAuthGuard],
+     canActivate: [CheckAuthGuard],
   },
   {
     path: 'home',
     component: LandingPageComponent,
   },
-  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({

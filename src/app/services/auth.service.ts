@@ -27,7 +27,7 @@ export class AuthService {
   isAuthenticated() {
     const helper: JwtHelperService = new JwtHelperService();
     const userToken: string | null = window.localStorage.getItem('token');
-    if (typeof userToken === 'string') return helper.isTokenExpired(userToken, 3600);
+    if (typeof userToken === 'string') return helper.isTokenExpired(userToken,3600);
     else return false; 
  
   }

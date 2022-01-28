@@ -1,32 +1,49 @@
-<div class="main-wrapper">
-    <div class="container-header-aside">
-        <aside>
-            <app-sidebar></app-sidebar>
-        </aside>
-
-        <div class="container-pages">
-            <div>
-                <header class="header__wrapper">
-                    <app-header></app-header>
-                </header>
-            </div>
-            <div class="page-wrapper">
-                <!-- Container fluid -->
-                <div class="container-fluid">
-                   
-              
-                </div>
-               <div class="clear"></div>
-                <footer class="footer">
-                    Desing by❤️: Oscar Chanax <a class="button-link" href="https://github.com/lex-art"
-                        target="_blank">My
-                        Git
-                        Hub</a>
-                </footer>
-                <!-- End footer -->
-            </div>
-        </div>
+<!-- ====================================================
+    Main Wrapper - style you can find in -> src/assets/css/main
+     ==================================================== -->
+<div class="grid-container">
+    <!-- ====================================================
+        Init Header - you add style in -> src/assets/css/core/header
+     ==================================================== -->
+    <div class="menu-icon" (click)="flag = true">
+        <i class="header__menu"></i>
     </div>
-
-
+    <app-header></app-header>
+    <!-- ====================================================
+        End Header 
+     ==================================================== -->
+    <!-- ====================================================
+        Init Aside (left menu)- you add style in -> src/assets/css/core/sidebar
+     ==================================================== -->
+    <aside class="sidenav" [ngClass]="{'sidenav-active': flag }">
+        <div class="sidenav__close-icon" (click)="flag = false">
+            <i class="aside-icon-close sidenav__brand-close"></i>
+        </div>
+        <app-sidebar></app-sidebar>
+    </aside>
+    <!-- ====================================================
+         End Aside (left menu)
+     ==================================================== -->
+    <!-- ====================================================
+         Init Pages Wrapper
+     ==================================================== -->
+    <main class="main">
+        <!-- ====================================================
+                Init Container Fluid and Contents Pages
+            ==================================================== -->
+        <router-outlet></router-outlet>
+        <!-- ====================================================
+                End Container Fluid and Contents Pages
+            ==================================================== -->
+    </main>
+    <!-- ====================================================
+         End Pages Wrapper
+     ==================================================== -->
+    <!-- ====================================================
+         Init Footer layout
+     ==================================================== -->
+    <app-footer></app-footer>
+    <!-- ====================================================
+         End Foter layout
+     ==================================================== -->
 </div>
