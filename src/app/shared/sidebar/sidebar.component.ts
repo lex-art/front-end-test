@@ -1,5 +1,5 @@
 import { AuthService } from './../../services/auth.service';
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -15,7 +15,7 @@ export class SidebarComponent  /* implements  OnInit  */ {
         icon:"",
         route:"",
         text: "Item 1",
-        role:["admin", "pastor"]
+        role:["admin"]
 
       },
       {
@@ -24,17 +24,23 @@ export class SidebarComponent  /* implements  OnInit  */ {
         text: "Item 2",
         role:["user"]
 
+      },
+      {
+        icon:"",
+        route:"",
+        text: "Cerrar cession",
+        closeSeesion: true,
+        role:["admin", "user"]
+
       }
     ]
-   }
+   }  
    
-
-   
-    /* ngOnInit(): void {
-      this.rolCurrentUser = this.checkAuth.getUser()?.role;
-      console.log('====================================');
-      console.log(this.rolCurrentUser);
-      console.log('====================================');
+  /* ngOnInit(): void {
+    this.rolCurrentUser = this.checkAuth.getUser()?.role;
+    console.log('====================================');
+    console.log(this.rolCurrentUser);
+    console.log('====================================');
   } */
 
   closeSeesion():void {    
