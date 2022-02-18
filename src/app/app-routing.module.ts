@@ -1,3 +1,5 @@
+import { NotRoleComponent } from './shared/not-role/not-role.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LandingPageComponent } from './modules/home/landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
@@ -28,9 +30,14 @@ const routes: Routes = [
     component: LandingPageComponent,
   },
   {
+    path: 'not-permission',
+    component: NotRoleComponent,
+  },
+  {
     path: '**',
-    redirectTo: '',
-    pathMatch: 'full'
+    /* redirectTo: '', */
+    pathMatch: 'full',
+    component: NotFoundComponent
   }
 ];
 

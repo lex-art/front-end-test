@@ -8,10 +8,13 @@ import { Title } from '@angular/platform-browser';
   styles: [],
 })
 export class HomeComponent implements OnInit {
-  constructor(private checkAuth: AuthService, private title: Title) {}
+  constructor(private checkAuth: AuthService, private title: Title, ) {}
 
   ngOnInit(): void {
     this.title.setTitle("Bienbenido al Starter de Angular 13") 
-    const { getUser } = this.checkAuth;
+    //const { getUser } = this.checkAuth;
+    /* console.log('====================================');
+    console.log();
+    console.log('===================================='); */
   }
 }

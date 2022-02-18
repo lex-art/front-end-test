@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class LandingPageComponent /* implements OnInit */ {
+export class LandingPageComponent  /* implements OnInit */  {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   /* ngOnInit(): void {
-  }
- */
+    
+  } */
+ 
 }

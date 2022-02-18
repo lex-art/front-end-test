@@ -1,7 +1,14 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .grid-container-auth {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 50px 1fr;
   grid-template-areas: "header-login" "card-login";
   height: 100vh;
 }
@@ -15,9 +22,13 @@
   grid-area: card-login;
   background-color: brown;
   display: flex;
+
+  flex-flow: row wrap;
+
   justify-content: center;
-  align-items: center;
   box-sizing: border-box;
+  align-items: center;/* <- alinea solo un linea */
+  /* align-content: center; <- alinea un grupo + de una linea */
 }
 .card-login {
   background-color: #ececec;
@@ -29,10 +40,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* align-content: center;  */
 }
 .container-form-login {
   width: 100%;
   padding: 0 10px;
+  
 }
 
 .form-control-input {
@@ -46,7 +59,7 @@
 }
 .input-form {
   width: 100%;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 5px 10px 0 0;
   height: 30px;
   border: solid 1px #9c9c9c;
@@ -60,7 +73,7 @@
 .form-control{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
 }
 .button-form {
   width: 30%;

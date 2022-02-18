@@ -23,8 +23,7 @@ export class CheckAuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const isLogued: boolean = this.checkAuth.isAuthenticated();
-    
+    const isLogued: boolean = this.checkAuth.isAuthenticated();   
     if (isLogued) return isLogued;
     else {
       this.router.navigateByUrl('/auth/login');

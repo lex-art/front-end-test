@@ -24,14 +24,38 @@ export class AuthService {
     this.router.navigateByUrl('/auth/login');
   }
 
-  isAuthenticated() {
+  isAuthenticated(): boolean {
     const helper: JwtHelperService = new JwtHelperService();
     const userToken: string | null = window.localStorage.getItem('token');
-    if (typeof userToken === 'string') return helper.isTokenExpired(userToken,3600);
-    else return false; 
- 
+    if (typeof userToken === 'string') {
+      const isExpired = helper.isTokenExpired(userToken);
+      if (!isExpired) {
+        this.refreshToken();
+        return !isExpired;
+      } else return false;
+    }
+    return false;
   }
-  
+
+  refreshToken() {
+    this.client
+      .get<UserService>(`${this.urlApi}/auth/refresh-token`)
+      .subscribe({
+        next: (response) => {
+          if (response.succes) {
+            window.localStorage.setItem('token', response.access_token);
+          } else {
+            window.localStorage.clear();
+            this.router.navigateByUrl('');
+          }
+        },
+        error: () => {
+          window.localStorage.clear();
+          this.router.navigateByUrl('');
+        },
+      });
+  }
+
   getUser(): User | undefined | void {
     const helper: JwtHelperService = new JwtHelperService();
     const userToken: string | null = window.localStorage.getItem('token');

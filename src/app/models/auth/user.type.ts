@@ -9,4 +9,5 @@ export interface User {
   fisrtName: string;
   lastName: string;
   email: string;
+  role: Array<string>
 }

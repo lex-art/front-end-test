@@ -9,27 +9,31 @@ import { LayoutComponent } from './layout/layout.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { SpinnerComponent } from './shared/spinner.component';
+import { NotRoleComponent } from './shared/not-role/not-role.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { MenuByRoleDirective } from './shared/directive/menu-by-role.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SpinnerComponent,
     LayoutComponent,
     HeaderComponent,
     SidebarComponent,
-    FooterComponent
-    ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
+    FooterComponent,
+    NotRoleComponent,
+    NotFoundComponent,
+    MenuByRoleDirective,
   ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
-      multi: true
+      multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: undefined,
   });
 
-  ngOnInit(): void {
+  ngOnInit() {
     if (this.userService.isAuthenticated()) this.router.navigateByUrl('');
   }
 

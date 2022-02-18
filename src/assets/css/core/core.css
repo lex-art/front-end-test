@@ -1,4 +1,4 @@
-/* auth */
 @import 'auth.css';
-/*  siedebar */
-@import 'sidebar.css'
+@import 'sidebar.css';
+@import 'spinner.css'
+
