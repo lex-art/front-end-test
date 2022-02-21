@@ -1,12 +1,6 @@
-<!-- 
 <ul class="sidenav__list">
-    <li class="sidenav__list-item">Item One</li>
-    <li class="sidenav__list-item">Item Two</li>
-    <li class="sidenav__list-item">Item Three</li>
-    <li class="sidenav__list-item">Item Four</li>
-    <li class="sidenav__list-item" (click)="closeSeesion()">Close Session</li>
-  </ul> -->
-<ul class="sidenav__list" *ngFor="let item of linksSidebar">
-  <li class="sidenav__list-item" *appMenuByRoleDirective="item.role" (click)="item.closeSeesion &&  closeSeesion()">
-    {{item.text}}</li>
+  <ng-container *ngFor="let item of linksSidebar">
+    <li class="sidenav__list-item" *appMenuByRoleDirective="item.role" (click)="item.closeSeesion &&  closeSeesion()">
+     <a class="text-sm" href={{item.route}}>{{item.text}}</a></li>
+  </ng-container>
 </ul>

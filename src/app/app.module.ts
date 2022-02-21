@@ -24,9 +24,13 @@ import { MenuByRoleDirective } from './shared/directive/menu-by-role.directive';
     FooterComponent,
     NotRoleComponent,
     NotFoundComponent,
-    MenuByRoleDirective,
+    MenuByRoleDirective
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

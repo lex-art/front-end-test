@@ -8,8 +8,8 @@
 body {
   margin: 0 !important;
   padding: 0 !important;
-  background: #efefef;
-  color: #111;
+  background: $backgroundSecondary;
+  color: $gray-600;
   box-sizing: border-box;
 }
 
@@ -19,7 +19,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr 50px;
+  grid-template-rows: 3.5rem 1fr 3rem;
   grid-template-areas: "header" "main" "footer";
 }
 
@@ -27,7 +27,7 @@ body {
   position: fixed; /* Debe permanecer visible para todos los desplazamientos móviles */
   display: flex;
   top: 5px;
-  left: 10px;
+  right: 0;
   align-items: center;
   justify-content: center;
   background-color: #dadae3;
@@ -35,6 +35,7 @@ body {
   z-index: 1;
   cursor: pointer;
   padding: 8px;
+  margin-right: 10px;
 }
 
 .header__menu {
@@ -51,28 +52,31 @@ body {
 /* A cada elemento secundario su nombre de cuadrículae */
 .header {
   grid-area: header;
-  background-color: #648ca6;
+  background-color: $primary;
+  color: $white;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
   height: 100%;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
 }
 /* Haz espacio para el icono del menú en el móvil */
-.header__search {
-  margin-left: 42px;
+.header__avatar{
+  display: none;
 }
 
 .sidenav {
   grid-area: sidenav;
-  background-color: #394263;
+  background-color: $backgroundPrimary;
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 240px;
+  width: 100%;
   position: fixed;
   overflow-y: auto;
-  transform: translateX(-245px);
+  transform: translateX(-100%);
   transition: all 0.6s ease-in-out;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   z-index: 2; /* Necesita sentarse encima del ícono del menú de hamburguesas */
@@ -120,7 +124,8 @@ body {
 
 .main {
   grid-area: main;
-  background-color: #8fd4d9;
+  /* background-color: #8fd4d9; */
+  height: 100%;
 }
 
 .main-header {
@@ -131,11 +136,13 @@ body {
   padding: 20px;
   height: 150px;
   color: slategray;
+  box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
+  border-radius: 0.5rem;
 }
 
 .main-overview {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));/* auto-fit llena el espacio restanmte por si hbiera
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));/* auto-fit llena el espacio restanmte por si hbiera
    y el minmax pone un valor entre dos rangos proporcionados en este caso un minimo de 265 y un maximo de una fraccion */
   grid-auto-rows: 94px;
   grid-gap: 20px;
@@ -181,10 +188,11 @@ body {
 .footer {
   grid-area: footer;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
-  background-color: #648ca6;
+  background: $backgroundSecondary;
   height: 100%;
 }
 
@@ -192,17 +200,41 @@ body {
 @media only screen and (min-width: 46.875em) {
   /* Mostrar la navegación lateral */
   .grid-container {
-    grid-template-columns: 240px 1fr;
+    grid-template-columns: 15rem 1fr;
     grid-template-areas: "sidenav header" "sidenav main" "sidenav footer";
   }
+  .header{
+    overflow-y: auto;
+    /* transform: translateX(100%); */
+    transition: all 0.6s ease-in-out;
+  } 
 
   .header__search {
     margin-left: 0;
   }
+  .header__avatar{
+    display: block;
+    background-color: $backgroundPrimary;
+    border-radius: 50%; 
+    padding: 25px;
+  
+    
+  }
+  .avart-example{
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url(../icons/user-me.svg) no-repeat; 
+    filter: nvert(100%) sepia(0%) saturate(4295%) hue-rotate(150deg) brightness(122%) contrast(104%);
+  }
 
+  .menu-icon {
+    display: none;
+  }
   .sidenav {
     position: relative;
     transform: translateX(0);
+    box-shadow: 2px 2px 20px rgb(0 0 0 / 50%);
   }
 
   .sidenav__close-icon {

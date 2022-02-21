@@ -1,0 +1,119 @@
+/*Theme Colors*/
+$themecolor: #398bf7;
+$themecolor-dark: #028ee1;
+$themecolor-alt: #26c6da;
+$theme-light: #fff;
+$theme-dark: #212529;
+
+//
+// Color system
+//
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #a1aab2 !default;
+$gray-600: #6c757d !default;
+$gray-700: #4f5467 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$blue: #398bf7 !default;
+$indigo: #6610f2 !default;
+$purple: #745af2 !default;
+$pink: #e83e8c !default;
+$red: #ef5350 !default;
+$orange: #fb8c00 !default;
+$yellow: #ffb22b !default;
+$green: #06d79c !default;
+$teal: #1eb88a !default;
+$cyan: #4fc3f7 !default;
+$text-muted: $gray-500 !default;
+
+
+
+$backgroundPrimary: #2c2b43;
+$backgroundSecondary: #ddd;
+
+$backgroundAside: #e3e4e6;
+
+$colors: (
+  "blue": $blue,
+  "indigo": $indigo,
+  "purple": $purple,
+  "pink": $pink,
+  "red": $red,
+  "orange": $orange,
+  "yellow": $yellow,
+  "green": $green,
+  "teal": $teal,
+  "cyan": $cyan,
+  "white": $white,
+  "gray": $gray-600,
+  "gray-dark": $gray-800,
+);
+
+$primary: $green !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $blue !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+$cyan: $cyan !default;
+$orange: $orange !default;
+$theme-colors: () !default;
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark,
+    "cyan": $cyan,
+    "orange": $orange,
+    "purple": $purple,
+  ),
+  $theme-colors
+);
+
+
+$font-size-base: 0.875rem;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 600 !default;
+$font-weight-bold: 800 !default;
+
+$h1-font-size: 36px !default;
+$h2-font-size: 24px !default;
+$h3-font-size: 21px !default;
+$h4-font-size: 18px !default;
+$h5-font-size: 16px !default;
+$h6-font-size: 14px !default;
+
+$headings-margin-bottom: (1rem / 2) !default;
+$headings-font-weight: 400 !default;
+$headings-color: inherit !default;
+
+// Body
+//
+// Settings for the  element.
+
+$main-body-bg: #fff !default;
+$body-bg: #f4f6f9;
+$body-color: #67757c !default;
+$grid-gutter-width: 20px !default;
+
+$body-login-bg: $theme-dark;
+
+//
+//unit heith
+//
+$height-button: 2.5rem;
+$height-inputs: 2.5rem;

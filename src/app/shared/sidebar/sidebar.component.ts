@@ -35,13 +35,6 @@ export class SidebarComponent  /* implements  OnInit  */ {
       }
     ]
    }  
-   
-  /* ngOnInit(): void {
-    this.rolCurrentUser = this.checkAuth.getUser()?.role;
-    console.log('====================================');
-    console.log(this.rolCurrentUser);
-    console.log('====================================');
-  } */
 
   closeSeesion():void {    
     this.checkAuth.logout()

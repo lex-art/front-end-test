@@ -1,0 +1,6 @@
+//forms  --- agregar los demas elementos
+.form-submitted input.ng-invalid,
+.form-submitted select.ng-invalid {
+  border-color: $danger;
+  box-shadow: 0px 0px 5px $danger;
+}

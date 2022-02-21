@@ -30,5 +30,6 @@ export class MenuByRoleDirective {
           role === (this.rolCurrentUser && this.rolCurrentUser[i])
       );
     if (canPermission) this.viewContainer.createEmbeddedView(this.templateref);
+    else this.viewContainer.remove()
   }
 }

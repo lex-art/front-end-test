@@ -3,94 +3,108 @@
 *::before {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 .grid-container-auth {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 60px 1fr;
   grid-template-areas: "header-login" "card-login";
   height: 100vh;
 }
 .container-header-login {
   grid-area: header-login;
+  background-color: $primary;
+  color: $white;
+  font-size: $h3-font-size;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
+  padding: 0 15px 0 15px;
+}
+.container-header-login li {
+  list-style-type: none;
 }
 .container-login {
   grid-area: card-login;
-  background-color: brown;
+  background-color: $body-login-bg;
   display: flex;
-
   flex-flow: row wrap;
-
   justify-content: center;
   box-sizing: border-box;
   align-items: center;/* <- alinea solo un linea */
   /* align-content: center; <- alinea un grupo + de una linea */
 }
 .card-login {
-  background-color: #ececec;
+  background-color: $gray-100;
   width: 100%;
-  height: 70%;
-  border-radius: 10px;
-  box-shadow: 5px 1px 10px rgb(0, 0, 0, 0.5);
+  height: 100%;
   box-sizing: border-box;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   /* align-content: center;  */
 }
 .container-form-login {
-  width: 100%;
+  width: 90%;
   padding: 0 10px;
   
 }
 
-.form-control-input {
+.form-group {
   display: block;
   color: #464545;
-  padding: 10px;
+  padding: 0.5rem;
 }
 .label-form {
   width: 100%;
   font-weight: 300;
 }
-.input-form {
+/* .input-form {
   width: 100%;
-  /* box-sizing: border-box; */
   margin: 5px 10px 0 0;
   height: 30px;
   border: solid 1px #9c9c9c;
   border-radius: 4px;
   padding: 0 8px;
   outline: none;
-}
-.input-form:focus-visible {
+} */
+/* .input-form:focus-visible {
   border: solid 1px brown;
-}
+} */
 .form-control{
   display: flex;
   justify-content: center;
   align-content: center;
+  text-align: center;
+  padding: 0.5rem;
 }
-.button-form {
+/* .button-form {
   width: 30%;
   height: 30px;
   border-radius: 4px;
   border: solid 1px rgb(78, 152, 221);
-}
+} */
 .button-form:hover {
   cursor: pointer;
   background-color: rgb(161, 214, 245);
 }
+label {
+  display: inline-block;
+    margin-bottom: 0.5rem;
+}
 @media only screen and (min-width: 750px) {
   .card-login {
-    width: 450px !important ;
+    width: 450px !important;
     height: 50% !important;
+    border-radius: 10px;
+    box-shadow: 5px 1px 10px rgb(0 0 0 / 50%);
   }
   .container-header-login {
     padding: 0 200px;
+  }
+  .container-form-login {
+    max-width: 100%;
   }
 }
