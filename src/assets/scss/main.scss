@@ -60,7 +60,7 @@ body {
   justify-content: space-between;
   padding: 0 16px;
   height: 100%;
-  box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 30%);
 }
 /* Haz espacio para el icono del menú en el móvil */
 .header__avatar{
@@ -78,7 +78,6 @@ body {
   overflow-y: auto;
   transform: translateX(-100%);
   transition: all 0.6s ease-in-out;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   z-index: 2; /* Necesita sentarse encima del ícono del menú de hamburguesas */
 }
 
@@ -113,7 +112,6 @@ body {
 }
 
 .sidenav__list-item {
-  padding: 20px 20px 20px 40px;
   color: #ddd;
 }
 
@@ -136,7 +134,7 @@ body {
   padding: 20px;
   height: 150px;
   color: slategray;
-  box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 0.5rem;
 }
 
@@ -234,7 +232,7 @@ body {
   .sidenav {
     position: relative;
     transform: translateX(0);
-    box-shadow: 2px 2px 20px rgb(0 0 0 / 50%);
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 40%);
   }
 
   .sidenav__close-icon {

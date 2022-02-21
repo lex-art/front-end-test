@@ -13,7 +13,7 @@ export class SidebarComponent  /* implements  OnInit  */ {
     this.linksSidebar = [
       {
         icon:"",
-        route:"",
+        route:"/page-one",
         text: "Item 1",
         role:["admin"]
 

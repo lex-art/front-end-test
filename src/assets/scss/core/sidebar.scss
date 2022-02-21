@@ -1,4 +1,7 @@
-.sidenav__list-item a{
-    color: $white;
-    text-decoration-line: none;
+.sidenav__list-item a {
+  width: 100%;
+  padding: 20px 20px 20px 40px;
+  display: inline-block;
+  color: $white;
+  text-decoration-line: none;
 }
