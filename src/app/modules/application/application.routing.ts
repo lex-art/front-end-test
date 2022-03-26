@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { CheckRoleGuard } from 'src/app/shared/guards/check-role.guard';
+import Constants from "../../utilities/constants"
 
 import { HomeComponent } from './home/home.component';
 import { PageOneComponent } from './page-one/page-one.component';
 import { PageTwoComponent } from './page-two/page-two.component';
-import Constants from "../../utilities/constants"
+import { PaginationComponent } from './pagination/pagination.component';
 
 //Todo: add more routes
 export const ComponentsRoutes: Routes = [
@@ -41,5 +42,12 @@ export const ComponentsRoutes: Routes = [
       /* role: 'registrador' */
     },
     canActivate: [CheckRoleGuard]
+  },
+  {
+    path: 'pagination',
+    component: PaginationComponent,
+    data: {
+      title: 'Pagination',    
+    }    
   }
 ];

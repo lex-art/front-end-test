@@ -22,10 +22,11 @@ export class AuthInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    this.spinnerService.showSpinner();
+    !req.headers.get('hideLoader') && this.spinnerService.showSpinner();
     const token: string | null = localStorage.getItem('token');
     let request = req;
-    if (token) {
+
+    if (req.headers.get('Anonymous') === null && token) {
       request = req.clone({
         setHeaders: {
           Accept: 'application/json',
@@ -42,6 +43,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       });
     }
 
+    request.headers.delete('hideLoader')
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.status === 401) this.spinnerService.hideSpinner();

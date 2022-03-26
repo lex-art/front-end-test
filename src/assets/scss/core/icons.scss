@@ -1,0 +1,59 @@
+//Icons
+.icon {  
+    font-size: 24px;
+    width: 1em;
+    height: 1em;
+    margin: 0.2em;  
+  }
+  .icon-md{
+    font-size: 30px;
+    width: 1em;
+    height: 1em;
+    margin: 0.2em;
+  }
+  .icon-xl{
+    font-size: 36px;
+    width: 1em;
+    height: 1em;
+    margin: 0.2em;
+  }
+  .arrow-down:active {
+    transform: scale(0.8);
+  }
+  
+  .arrow-down {
+    font-size: 24px !important;
+    width: 0.6em !important;
+    height: 0.6em !important;
+    background: url(../../icons/arow-down.svg) no-repeat;
+  }
+  .home{
+    background: url(../../icons/home.svg) no-repeat;
+  }
+  .sing-out{
+    background: url(../../icons/sing-out.svg) no-repeat;
+  }
+  .user{
+    background: url(../../icons/user.svg) no-repeat;
+  }
+  .settings {
+    background: url(../../icons/settings.svg) no-repeat;
+  }
+
+  /*Table icons*/
+  .arrow-left {
+    display: block;
+    text-align: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: -5px;
+    background: url(../../icons/arow-left.svg) no-repeat;
+  }
+  .arrow-right {
+    display: block;
+    text-align: center;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-left: -2px;
+    background: url(../../icons/arow-rigth.svg) no-repeat;
+  }

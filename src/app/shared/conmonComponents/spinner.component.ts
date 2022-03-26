@@ -13,7 +13,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { SpinnerService } from '../services/spinner.service';
+import { SpinnerService } from '../../services/spinner.service';
 
 @Component({
   selector: 'app-spinner',
@@ -35,7 +35,7 @@ export class SpinnerComponent  implements OnDestroy  {
   public backgroundColor = 'rgba(0, 115, 170, 0.69)';
   constructor(private spinnerService: SpinnerService,private router: Router,
     @Inject(DOCUMENT) private document: Document ){
-  
+
     this.router.events.subscribe(
       (event) => {
         if (event instanceof NavigationStart) {
@@ -51,11 +51,11 @@ export class SpinnerComponent  implements OnDestroy  {
       () => {
         this.spinnerService.hideSpinner()
       }
-    ); 
+    );
   }
 
   ngOnDestroy(): void {
     this.spinnerService.hideSpinner()
   }
-  
+
 }

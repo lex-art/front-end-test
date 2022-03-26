@@ -1,6 +1,0 @@
-<ul class="sidenav__list">
-  <ng-container *ngFor="let item of linksSidebar">
-    <li class="sidenav__list-item" *appMenuByRoleDirective="item.role" (click)="item.closeSeesion &&  closeSeesion()">
-     <a class="text-sm"  [routerLink]="item.route">{{item.text}}</a></li>
-  </ng-container>
-</ul>

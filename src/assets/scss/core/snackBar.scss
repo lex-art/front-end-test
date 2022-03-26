@@ -1,0 +1,24 @@
+.snackbar-success{
+    background-color: $success;
+    button {
+      color: white !important;
+    }
+  }
+  .snackbar-warning{
+    background-color: $warning;
+    button {
+      color: white !important;
+    }
+  }
+  .snackbar-danger{
+    background-color: $danger;
+    button {
+      color: white !important;
+    }
+  }
+  .snackbar-info{
+    background-color: $info;
+    button {
+      color: white !important;
+    }
+  }

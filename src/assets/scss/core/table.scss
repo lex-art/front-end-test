@@ -1,0 +1,94 @@
+table {
+  /* border-spacing: 1; */
+  border-collapse: collapse;
+  background: white;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.table-head {
+  height: 40px;
+  background: $primary;
+  td {
+    color: $white;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: unset;
+  }
+}
+.column-head {
+  padding-left: 1em;
+}
+
+tbody tr {
+  height: 40px;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: unset;
+  border-bottom: 1px $gray-300 solid;
+}
+tbody tr:hover{
+  background-color: $gray-200;
+  cursor: pointer;
+}
+.row-table {
+  padding-left: 1em;
+}
+
+.container-loader-table {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $primary !important;
+}
+
+.title-table {
+  padding: 1em;
+}
+.table-pagination {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding: 0.5em;
+  margin-left: 1em;
+  button {
+    height: 2em;
+    width: 2em;
+  }  
+}
+.btn-prev,
+.btn-next {
+  border-radius: 50%;
+}
+.contain-pages{
+  display: flex;
+  max-width: 9em;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow: auto;
+  
+}
+.contain-pages::-webkit-scrollbar {
+  display: none;
+  }
+
+.btn-pages{
+  display: block;
+  text-align: center;
+  background-color: $white;
+  border-radius: 50%;
+  font-size: 18px;
+}
+
+.btn-page-active{
+  font-size: medium;
+  color: $gray-500;
+}

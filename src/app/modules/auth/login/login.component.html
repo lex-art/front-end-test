@@ -12,29 +12,19 @@
     <div class="container-login">
         <!-- <app-header></app-header> -->
         <form [formGroup]="formLogin" (ngSubmit)="onLogin()" errorTailor class="card-login">
-                        <div class="container-form-login">
+            <div class="container-form-login">
                 <div class="form-control">
                     <p>Iniciar sesión</p>
                 </div>
                 <div class="form-group">
                     <label class="label-form" for="email">Usuario:</label>
-                    <input 
-                        class="input-form" 
-                        type="email" 
-                        placeholder="ingrese correo" 
-                        formControlName="email"
-                        [controlErrorsTpl]="errorEmail"
-                    >
+                    <input class="input-form" type="email" placeholder="ingrese correo" formControlName="email"
+                        [controlErrorsTpl]="errorEmail">
                 </div>
                 <div class="form-group">
                     <label class="label-form" for="pass">contraseña:</label>
-                    <input 
-                        class="input-form"
-                        type="password"
-                        placeholder="ingrese contraseña"
-                        formControlName="password"
-                        controlErrorsClass="danger"
-                    >
+                    <input class="input-form" type="password" placeholder="ingrese contraseña"
+                        formControlName="password" controlErrorsClass="danger">
                 </div>
                 <div class="form-control">
                     <button class="btn btn-primary wh-50" type="submit">Enviar</button>
@@ -49,6 +39,3 @@
 </div>
 
 <ng-template let-error let-text="text" #errorEmail> <label for="email" class="danger">{{text}}</label> </ng-template>
-
-
-

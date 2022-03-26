@@ -27,11 +27,11 @@ body {
   position: fixed; /* Debe permanecer visible para todos los desplazamientos móviles */
   display: flex;
   top: 5px;
-  right: 0;
+  /* right: 0; */
   align-items: center;
   justify-content: center;
-  background-color: #dadae3;
-  border-radius: 50%; 
+  /* background-color: #dadae3; */
+ /*  border-radius: 50%;  */
   z-index: 1;
   cursor: pointer;
   padding: 8px;
@@ -39,15 +39,19 @@ body {
 }
 
 .header__menu {
+  font-size: 24px;
   display: block;
   margin-top: 3px;
-  width: 18px;
-  height: 18px;
+  width:1em;
+  height: 1em;
   background: url(../icons/menu.svg) no-repeat;
 }
 
 .header__menu:active {
   transform: scale(0.8);
+}
+.header__search {
+  margin-left: 2em;
 }
 /* A cada elemento secundario su nombre de cuadrículae */
 .header {
@@ -89,35 +93,22 @@ body {
   position: absolute;
   color: #ddd;
   visibility: visible;
-  top: 8px;
-  right: 12px;
+  top: 0.8em;
+  right: 0.8em;
   cursor: pointer;
   font-size: 20px;
 }
 
 .sidenav__brand-close {
+  font-size: 16px;
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 1em;
+  height: 1em;
   background: url(../icons/close.svg) no-repeat;
 }
 
 .sidenav__brand-close:active {
   transform: scale(0.8);
-}
-.sidenav__list {
-  padding: 0;
-  margin-top: 85px;
-  list-style-type: none;
-}
-
-.sidenav__list-item {
-  color: #ddd;
-}
-
-.sidenav__list-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  cursor: pointer;
 }
 
 .main {
@@ -153,6 +144,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
+  box-shadow: rgba(100, 100, 111, 0.1) 0px 5px 10px 0px;
+  border-radius: 0.5rem;
 }
 
 .main-cards {
@@ -161,7 +154,8 @@ body {
   margin: 20px;
 }
 .card {
-  background-color: #82bef6;
+  background-color: $white;
+  border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -172,8 +166,9 @@ body {
   box-sizing: border-box; /* investigar que hace esta onda???? */
 }
 
+
 /* Forzar alturas variables para simular contenido dinámico */
-.card:first-child {
+/* .card:first-child {
   height: 845px;
 }
 .card:nth-child(2) {
@@ -181,7 +176,7 @@ body {
 }
 .card:nth-child(3) {
   height: 265px;
-}
+} */
 
 .footer {
   grid-area: footer;
@@ -195,29 +190,21 @@ body {
 }
 
 /* Estilos no móviles, punto de interrupción de 750 px */
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 768px) {
   /* Mostrar la navegación lateral */
   .grid-container {
     grid-template-columns: 15rem 1fr;
     grid-template-areas: "sidenav header" "sidenav main" "sidenav footer";
   }
   .header{
-    overflow-y: auto;
-    /* transform: translateX(100%); */
-    transition: all 0.6s ease-in-out;
+    position: relative;
+    overflow-y: auto;    
   } 
 
   .header__search {
     margin-left: 0;
   }
-  .header__avatar{
-    display: block;
-    background-color: $backgroundPrimary;
-    border-radius: 50%; 
-    padding: 25px;
-  
     
-  }
   .avart-example{
     display: block;
     width: 2.5rem;
