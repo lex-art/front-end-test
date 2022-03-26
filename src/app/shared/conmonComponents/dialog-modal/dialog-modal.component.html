@@ -1,0 +1,27 @@
+<div>
+    <h1 mat-dialog-title>{{ dialogData.dialogHeader }}</h1>
+    <div mat-dialog-content>
+      <p>{{ dialogData.dialogContent }}</p>
+    </div>
+    <div mat-dialog-actions>
+      <button
+      class="btn btn-primary"
+        mat-button
+        (click)="closeDialog()"
+        mat-raised-button
+        color="primary"
+      >
+       Acceptar
+      </button>
+      <button
+      class="btn btn-primary"
+        mat-button
+        cdkFocusInitial
+        (click)="closeDialog()"
+        mat-raised-button
+        color="accent"
+      >
+       Cerrar
+      </button>
+    </div>
+  </div>

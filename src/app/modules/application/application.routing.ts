@@ -39,6 +39,7 @@ export const ComponentsRoutes: Routes = [
         { title: 'ngComponent' },
         { title: 'Cards' },
       ],
+      role: [Constants.ROLES.ADMIN, Constants.ROLES.USER]
       /* role: 'registrador' */
     },
     canActivate: [CheckRoleGuard]

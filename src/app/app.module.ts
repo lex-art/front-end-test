@@ -11,11 +11,12 @@ import { HeaderComponent } from './shared/conmonComponents/header/header.compone
 import { SidebarComponent } from './shared/conmonComponents/sidebar/sidebar.component';
 import { FooterComponent } from './shared/conmonComponents/footer/footer.component';
 import { SpinnerComponent } from './shared/conmonComponents/spinner.component';
-import { NotRoleComponent } from './shared/not-role/not-role.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NotRoleComponent } from './shared/conmonComponents/not-role/not-role.component';
+import { NotFoundComponent } from './shared/conmonComponents/not-found/not-found.component';
 import { MenuByRoleDirective } from './shared/directive/menu-by-role.directive';
 import { SubMenuComponent } from './shared/conmonComponents/sidebar/subMenu/submenu.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DialogModalComponent } from './shared/conmonComponents/dialog-modal/dialog-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     NotRoleComponent,
     NotFoundComponent,
     MenuByRoleDirective,
-    SubMenuComponent
+    SubMenuComponent,
+    DialogModalComponent
   ],
   imports: [
     BrowserModule,

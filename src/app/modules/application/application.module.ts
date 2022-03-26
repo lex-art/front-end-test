@@ -10,10 +10,8 @@ import { DataTableComponent } from '../../shared/conmonComponents/data-table/dat
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
 
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
 
 
 @NgModule({
@@ -30,9 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatProgressSpinnerModule,
     MatIconModule,
     MatSnackBarModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
+    MatDialogModule
   ],
   exports: [RouterModule],
 })

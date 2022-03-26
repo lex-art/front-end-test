@@ -1,5 +1,5 @@
-import { NotRoleComponent } from './shared/not-role/not-role.component';
-import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { NotRoleComponent } from './shared/conmonComponents/not-role/not-role.component';
+import { NotFoundComponent } from './shared/conmonComponents/not-found/not-found.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LandingPageComponent } from './modules/home/landing-page/landing-page.component';
 import { NgModule } from '@angular/core';
