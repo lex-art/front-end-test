@@ -34,8 +34,7 @@ export class PaginationComponent implements AfterViewInit {
   constructor(private title: Title, private dataService: GetDataService, private snackBarSrvc: SnackBarService) {}
 
   ngAfterViewInit(): void {
-    this.title.setTitle('Paginación');
-    
+    this.title.setTitle('Paginación');    
     this.getData('https://pokeapi.co/api/v2/ability?offset=0&limit=15')
   }
 
@@ -67,25 +66,3 @@ export class PaginationComponent implements AfterViewInit {
     })
   }
 }
-
-
-/* export class SnackBarSettings {
-  constructor( private _snackBar: MatSnackBar ) {}
-
-  openSnackbar(
-    message: string = '',
-    action: string = 'X',
-    duration: number = 2000,
-    horizontalPosition: MatSnackBarHorizontalPosition | undefined = 'end',
-    verticarPosition: MatSnackBarVerticalPosition | undefined = 'top',
-    style: string = 'snackbar-success'
-  ) {
-    return this._snackBar.open(message, action, {
-      duration: duration,
-      horizontalPosition: horizontalPosition,
-      verticalPosition: verticarPosition,
-      panelClass: [style],
-    });
-  }
-}
- */
