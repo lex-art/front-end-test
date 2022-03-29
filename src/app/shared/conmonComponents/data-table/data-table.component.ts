@@ -30,9 +30,6 @@ export class DataTableComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.title.setTitle('Paginación');
-    console.log('====================================');
-    console.log({ configTable: this.configTable });
-    console.log('====================================');
     this.dataSource = this.configTable?.results
         this.count = this.configTable?.count
         this.next = this.configTable?.next
@@ -43,17 +40,11 @@ export class DataTableComponent implements AfterViewInit {
   }
 
   nextPage(): void{
-    console.log('====================================');
-    console.log("next page", this.next);
-    console.log('====================================');
     if ( this.next){
     /* this.getData(this.next) */
     this.pageActual++}
   }
   prevPage():void {
-    console.log('====================================');
-    console.log("prev page", this.previous);
-    console.log('====================================');
     if ( this.previous){
   /*   this.getData(this.previous) */
     this.pageActual--}

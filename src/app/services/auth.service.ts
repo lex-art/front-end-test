@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { UserService, User } from '../models/auth/user.type';
+import { UserService, User,UserForgotPassword, SimpleResponse } from '../models/auth/user.type';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
@@ -14,11 +14,15 @@ export class AuthService {
   constructor(private client: HttpClient, private router: Router) {}
 
   login(body?: any, params?: { [key: string]: any }): Observable<UserService> {
-    return this.client.post<UserService>(`${this.urlApi}/auth/login`, body, {
-      params,
-    });
+    return this.client.post<UserService>(`${this.urlApi}/auth/login`, body, params);
   }
 
+  forgotPassword(body?: any, params?: { [key: string]: any }): Observable<UserForgotPassword>{
+    return this.client.put<UserForgotPassword>(`${this.urlApi}/auth/forgot-password`, body, params);
+  }
+  resetPassword(body?: any, params?: { [key: string]: any }):Observable<SimpleResponse>{
+    return this.client.put<SimpleResponse>(`${this.urlApi}/auth/reset-password`, body, params );
+  }
   logout() {
     window.localStorage.removeItem('token');
     this.router.navigateByUrl('/auth/login');
@@ -62,4 +66,6 @@ export class AuthService {
     if (typeof userToken === 'string') return helper.decodeToken(userToken);
     else this.logout();
   }
+
+  
 }

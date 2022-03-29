@@ -12,9 +12,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle("Bienbenido al Starter de Angular 13") 
-    //const { getUser } = this.checkAuth;
-    /* console.log('====================================');
-    console.log();
-    console.log('===================================='); */
   }
 }

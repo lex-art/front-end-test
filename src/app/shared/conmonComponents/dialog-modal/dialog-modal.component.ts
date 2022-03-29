@@ -13,15 +13,4 @@ export class DialogModalComponent {
     public dialogData: DialogInterface,
     public dialogRef: MatDialogRef<DialogModalComponent>
   ) {}
-
-  handleDialogSubmit() {
-    /*  this.stateService.isAsyncOperationRunning$.next(true); */
-    setTimeout(() => {
-      this.dialogData.callbackMethod();
-      /* this.stateService.isAsyncOperationRunning$.next(false); */
-    }, 500);
-  }
-  closeDialog(): void {
-    this.dialogRef.close();
-  }
 }

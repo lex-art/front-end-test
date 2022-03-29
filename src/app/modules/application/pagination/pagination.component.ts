@@ -65,4 +65,11 @@ export class PaginationComponent implements AfterViewInit {
       }
     })
   }
+
+  onSearch(value: any){}
+  onKeyDownHandler(event:any){
+    console.log('====================================');
+    console.log(event);
+    console.log('====================================');
+  }
 }

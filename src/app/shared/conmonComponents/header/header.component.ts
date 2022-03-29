@@ -26,9 +26,6 @@ export class HeaderComponent /* implements OnInit */ {
   } */
 
   onClick() {
-    console.log('====================================');
-    console.log('funciona esta onda?');
-    console.log('====================================');
     this.openDropDown = !this.openDropDown;
   }
 }

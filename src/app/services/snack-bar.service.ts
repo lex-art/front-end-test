@@ -11,7 +11,7 @@ export class SnackBarService {
   openSnackbar(
     message: string = '',
     style: string = 'snackbar-success',
-    duration: number = 2000,
+    duration: number = 3000,
     action: string = 'X',
     horizontalPosition: MatSnackBarHorizontalPosition | undefined = 'end',
     verticarPosition: MatSnackBarVerticalPosition | undefined = 'top',

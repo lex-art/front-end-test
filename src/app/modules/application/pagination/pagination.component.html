@@ -2,6 +2,22 @@
     <div class="title-table">
         <h1>Ejemplo de una tabla</h1>
     </div>
+    <div class="contain-txt-search">
+        <div class="wd-90 txt-search">
+            <input 
+            class="input-form wd-100"
+            type="text"
+            placeholder="Búscar"
+            #txtSearch        
+            (keyup.enter)="onKeyDownHandler(txtSearch.value)"
+            />
+        </div>
+        <div class="wd-10 txt-search">
+            <button class="btn btn-outline-secondary">Búscar</button>
+
+        </div>
+        
+    </div>
     <table>
         <tr class="table-head">
             <td class="column-head"><h4>Nombre:</h4></td>

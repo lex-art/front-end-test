@@ -7,21 +7,20 @@ import { SnackBarService } from 'src/app/services/snack-bar.service';
 import Constants from 'src/app/utilities/constants';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
+  selector: 'app-forgot-password',
+  templateUrl: './forgot-password.component.html',
   styles: [],
 })
-export class LoginComponent implements OnInit {
-  formLogin: FormGroup;
+export class ForgotPasswordComponent implements OnInit {
+  formForgotPassword: FormGroup;
   constructor(
     private userService: AuthService,
     private router: Router,
     private builderform: FormBuilder /* private form: FormBuilder */,
     private snackBarSrvc: SnackBarService
   ) {
-    this.formLogin = this.builderform.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+    this.formForgotPassword = this.builderform.group({
+      userEmail: ['', [Validators.required, Validators.email]],
     });
   }
 
@@ -29,29 +28,30 @@ export class LoginComponent implements OnInit {
     if (this.userService.isAuthenticated()) this.router.navigateByUrl('');
   }
 
-  onLogin(): void {
-    const user = this.formLogin.value;
-    if (this.formLogin.valid)
-      this.userService.login(user).subscribe({
+  onForgortPassword(): void {
+    const user = this.formForgotPassword.value;
+    if (this.formForgotPassword.valid)
+      this.userService.forgotPassword(user).subscribe({
         next: (response) => {
-          console.log(response);
-
-          if (response.succes) {
-            window.localStorage.setItem('token', response.access_token);
-            this.router.navigateByUrl('');
+          if (response.url) {
+            this.snackBarSrvc.openSnackbar(
+              'Revise su correo electrónico para obtener un enlace y poder restablecer su contraseña',
+              'snackbar-success'
+            );
+            this.router.navigateByUrl('auth/login');
           }
         },
         error: (err: HttpErrorResponse) => {
           switch (err.error.message) {
-            case Constants.ERROR.PASSWORD_INVALID:
-              this.snackBarSrvc.openSnackbar(
-                'Constraseña invalida',
-                'snackbar-danger'
-              );
-              break;
             case Constants.ERROR.USER_NOT_FOUD:
               this.snackBarSrvc.openSnackbar(
                 'Correo incorrecto',
+                'snackbar-danger'
+              );
+              break;
+            case Constants.ERROR.EMAIL_REQUERID:
+              this.snackBarSrvc.openSnackbar(
+                'Correo es un campo obligatorio',
                 'snackbar-danger'
               );
               break;

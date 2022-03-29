@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AuthInterceptorService } from './shared/interceptor/auth-interceptor.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -15,8 +15,9 @@ import { NotRoleComponent } from './shared/conmonComponents/not-role/not-role.co
 import { NotFoundComponent } from './shared/conmonComponents/not-found/not-found.component';
 import { MenuByRoleDirective } from './shared/directive/menu-by-role.directive';
 import { SubMenuComponent } from './shared/conmonComponents/sidebar/subMenu/submenu.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogModalComponent } from './shared/conmonComponents/dialog-modal/dialog-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { DialogModalComponent } from './shared/conmonComponents/dialog-modal/dia
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSnackBarModule
+    MatSnackBarModule,MatDialogModule    
   ],
   providers: [
     {
