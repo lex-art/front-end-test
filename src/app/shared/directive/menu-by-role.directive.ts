@@ -18,7 +18,7 @@ export class MenuByRoleDirective {
   ) {}
 
   @Input()
-  set appMenuByRoleDirective(roles: Array<string>) {
+  set appMenuByRoleDirective(roles: Array<string> | undefined) {
     this.viewContainer.createEmbeddedView(this.templateref);
     this.rolCurrentUser = this.checkAuth.getUser()?.role;
     //update view
