@@ -38,12 +38,13 @@ export class ResetPasswordComponent implements OnInit {
         const params = { headers: { 'token-reset': this.token } };
         this.userService.resetPassword({ newPassword }, params).subscribe({
           next: (response) => {
-            if (response.succes) {
+            if (response.success) {
               this.snackBarSrvc.openSnackbar('Cambio de contraseña exitoso');
               this.router.navigateByUrl('/auth/login');
             }
           },
           error: (err: HttpErrorResponse) => {
+            this.router.navigate(['/', 'auth', 'reset-password', this.token]);
             switch (err.error.message) {
               case Constants.ERROR.EMAIL_AND_TOKEN_REQUORED:
                 this.snackBarSrvc.openSnackbar(

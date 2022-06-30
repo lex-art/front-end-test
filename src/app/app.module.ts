@@ -18,6 +18,7 @@ import { SubMenuComponent } from './shared/conmonComponents/sidebar/subMenu/subm
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogModalComponent } from './shared/conmonComponents/dialog-modal/dialog-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSnackBarModule,MatDialogModule    
+    MatSnackBarModule,
+    MatDialogModule,
+    MatMenuModule   
   ],
   providers: [
     {

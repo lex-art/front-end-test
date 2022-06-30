@@ -1,25 +1,28 @@
-<li class="list-menu-item">
-    <div class="list-menu-btn list-button--click" *appMenuByRoleDirective="routeSidebar?.role" routerLinkActive="active-link" (click)="routeSidebar?.subMenu ? openSubMenu() :  redirectLink(routeSidebar?.route)">
+<li class="list-menu-item" *appMenuByRoleDirective="routeSidebar?.role">
+    <div class="list-menu-btn list-button--click" routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{exact: true}"
+        (click)="routeSidebar?.subMenu ? openSubMenu() : redirectLink(routeSidebar?.route)">
         <div class="arrow-contain">
-            <a class="nav-link text-sm" [routerLink]="routeSidebar?.route" >
+            <a class="nav-link text-sm" [routerLink]="routeSidebar?.route">
                 <i class="{{routeSidebar?.icon}}"></i>
+
                 <samp class="title-nav-link">{{routeSidebar?.text}}</samp>
-                
+
             </a>
             <i class="icon arrow-down" *ngIf="routeSidebar?.subMenu"></i>
         </div>
-        
+
     </div>
-    <div  [@openClose]="isOpen ? true : false"  *ngIf="routeSidebar?.subMenu">
-      <ul class="list-sub-item">
-          <ng-container *ngFor="let subItem of routeSidebar?.subMenu">
-            <li class="list-inside" *appMenuByRoleDirective="subItem.role">
-                <a class="nav-link text-sm" [routerLink]="subItem?.route"  routerLinkActive="active-link">
-                  <i class="{{subItem?.icon}}"></i>
-                  <samp>{{subItem?.text}}</samp></a>
-              </li> 
-          </ng-container>                
-      </ul>
+    <div [@openClose]="isOpen ? true : false" *ngIf="routeSidebar?.subMenu">
+        <ul class="list-sub-item">
+            <ng-container *ngFor="let subItem of routeSidebar?.subMenu">
+                <li class="list-inside" *appMenuByRoleDirective="subItem.role">
+                    <a class="nav-link text-sm" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"
+                        (click)="redirecSubMenu()" [routerLink]="subItem?.route">
+                        <i class="{{subItem?.icon}}"></i>
+                        <samp>{{subItem?.text}}</samp></a>
+                </li>
+            </ng-container>
+        </ul>
     </div>
-  </li>
-  
+</li>

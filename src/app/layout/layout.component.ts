@@ -1,15 +1,14 @@
-import { ConmonServiceService } from './../services/conmon-service.service';
-import { Component,} from '@angular/core';
+import { Component } from '@angular/core';
+import { ConmonService } from '../services/conmon-service.service';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
 })
 export class LayoutComponent {
-  public isSpinnerVisible = this.conmonService.isOpen;
-  constructor(private conmonService: ConmonServiceService) { }
- 
- 
+  public isMenuiIconVisible = this.conmonService.isOpen;
+  constructor(private conmonService: ConmonService) {}
+
   openMenu(){
     this.conmonService.showMenu();
   }

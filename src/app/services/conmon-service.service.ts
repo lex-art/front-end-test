@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Subject } from "rxjs";
+import { Subject } from 'rxjs';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ConmonServiceService {
+export class ConmonService {
   isOpen = new Subject<boolean>();
   showMenu(): void {
-      this.isOpen.next(true);
+    this.isOpen.next(true);
   }
   hideMenu(): void {
-      this.isOpen.next(false);
+    this.isOpen.next(false);
   }
 }

@@ -1,61 +1,66 @@
 .contienr-header-dropdown {
   position: relative;
-  /*  text-align: right;   */
-}
-.header-avatar {
-  background-color: $backgroundPrimary;
-  border-radius: 50%;
-  padding: 1px;
-  border-width: none;
-  border-style: none;
-  border-color: none;
-  border-image: none;
-  cursor: pointer;
-  
-}
-.header-avatar:active {
-  transform: scale(0.8);
+  /* .mat-form-field-wrapper .mat-form-field-flex {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none !important;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0 !important;
+  }
+  .mat-form-field-infix {
+    padding: 0;
+    border-top: 0;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0 !important;
+  }
+  .mat-select {
+    width: 0 !important;
+  }
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+  }
+  .mat-select-arrow {
+    display: none;
+  }
+  .mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: transparent !important;
+  }
+  .mat-form-field.mat-focused .mat-form-field-ripple {
+    opacity: 0 !important;
+    transition: none !important;
+  } */
+  .btn:active {
+    transform: scale(0.8);
+  }
 }
 
-.header-dropdown {
-  position: fixed;
-  z-index: 2;
-  background-color: $white;
-  color: $gray-600;
-  width: 13em;
-  border-radius: 0.5em;
-  margin-top: 0.3em;
-  transform: translateX(-78%);
-  overflow: hidden;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.user-profile {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
 }
-/* .header-dropdown::before{
-    content: '';
-    position: fixed;
-    z-index: 40;
-    width: 0;
-     height: 0;
-     border-right: 0.8em solid transparent;
-     border-top: 0.8em solid transparent;
-     border-left: 0.8em solid transparent;
-     border-bottom: 0.8em solid aqua;    
-     right:  1.4em;
-     top: -1em;
-} */
-.menu-dropdown {
-  list-style: none;
-  padding-inline-start: 0;
-  li {
-    border-bottom: 1px solid $gray-400;
+.profile {
+  position: relative;
+  margin-top: 0.02em;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.name-profile {
+ visibility: hidden;
+}
+.mat-form-field-appearance-fill {
+  border: none !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .name-profile { 
+    visibility: visible;   
     padding: 0.5em;
-  }
-  li:hover {
-    background-color: $backgroundPrimary;
-    a {
-      color: $white !important;
-    }
-  }
-  a {
-    color: $gray-600 !important;
   }
 }

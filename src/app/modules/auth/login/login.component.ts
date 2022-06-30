@@ -34,10 +34,8 @@ export class LoginComponent implements OnInit {
     if (this.formLogin.valid)
       this.userService.login(user).subscribe({
         next: (response) => {
-          console.log(response);
-
           if (response.succes) {
-            window.localStorage.setItem('token', response.access_token);
+            window.localStorage.setItem('token', response.accessToken);
             this.router.navigateByUrl('');
           }
         },

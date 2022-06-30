@@ -1,19 +1,20 @@
 <header class="header">
-  <div class="header__search">Search...</div>
+  <!-- <div class="header__search">Search...</div> -->
   <div class="contienr-header-dropdown">
-    <button class="nav-link text-sm header-avatar" (click)="onClick()">
-      <i class="icon-md user center-icon"></i>
-    </button>
-
-    <!-- [@openCloseDropDown]="openDropDown ? true : false"  -->
-      <div [@openCloseDropDown]="openDropDown ? true : false" class="header-dropdown">
-        <ul class="menu-dropdown">
-          <li><a class="nav-link text-sm" href="#">Hola</a></li>
-          <li><a class="nav-link text-sm" href="#">Hola</a></li>
-          <li><a class="nav-link text-sm" href="#">Hola</a></li>
-        </ul>
-      </div>
-    
+    <div class="user-profile">
+      <Label class="name-profile">{{userName}}</Label>
+      <button class="btn p-0" [matMenuTriggerFor]="menu">
+        <img class="profile" [src]="pictureUser" alt="profile">
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="onClickSelect(1)">         
+          <span>Cambiar cotraseña</span>
+        </button>
+        <button mat-menu-item (click)="onClickSelect(2)">         
+          <span>Cerrar sesión</span>
+        </button>
+      </mat-menu>
+    </div>
   </div>
 
 </header>

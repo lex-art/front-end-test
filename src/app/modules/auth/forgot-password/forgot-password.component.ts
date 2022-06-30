@@ -42,6 +42,10 @@ export class ForgotPasswordComponent implements OnInit {
           }
         },
         error: (err: HttpErrorResponse) => {
+          console.log('====================================');
+          console.log({err});
+          console.log('====================================');
+          this.router.navigateByUrl('auth/forgot-password');
           switch (err.error.message) {
             case Constants.ERROR.USER_NOT_FOUD:
               this.snackBarSrvc.openSnackbar(

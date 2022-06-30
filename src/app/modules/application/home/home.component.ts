@@ -1,6 +1,7 @@
 import { AuthService } from '../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -12,5 +13,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.title.setTitle("Bienbenido al Starter de Angular 13") 
+    this.checkAuth.getExapmle().subscribe({
+      next: (data) => {
+        console.log('====================================');
+        console.log({data});
+        console.log('====================================');
+      },
+      error: (error: HttpErrorResponse)=>{
+        console.log('====================================');
+        console.log({error});
+        console.log('====================================');
+      }
+    })
   }
 }

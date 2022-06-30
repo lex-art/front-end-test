@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { UserService, User,UserForgotPassword, SimpleResponse } from '../models/auth/user.type';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import constants from '../utilities/constants';
 
 @Injectable({
   providedIn: 'root',
@@ -34,20 +35,28 @@ export class AuthService {
     if (typeof userToken === 'string') {
       const isExpired = helper.isTokenExpired(userToken);
       if (!isExpired) {
-        this.refreshToken();
+        if (this.tokenVerifyRefresh(helper.decodeToken(userToken).iat)) {          
+          this.refreshToken();
+        }   
         return !isExpired;
       } else return false;
     }
     return false;
   }
 
+  tokenVerifyRefresh(iatToken: number){
+    const now = new Date();
+    let expiresOn= (iatToken + constants.COMMON.FOR_REFRESH_TOKEN * 60) * 1000;
+    return (expiresOn < now.getTime())
+  }
+  
   refreshToken() {
     this.client
       .get<UserService>(`${this.urlApi}/auth/refresh-token`)
       .subscribe({
         next: (response) => {
           if (response.succes) {
-            window.localStorage.setItem('token', response.access_token);
+            window.localStorage.setItem('token', response.accessToken);
           } else {
             window.localStorage.clear();
             this.router.navigateByUrl('');
@@ -66,6 +75,11 @@ export class AuthService {
     if (typeof userToken === 'string') return helper.decodeToken(userToken);
     else this.logout();
   }
+
+  getExapmle():Observable<any> {
+    return this.client.get<any>(`${this.urlApi}/lists/example`);
+  }
+  
 
   
 }

@@ -1,0 +1,13 @@
+<div class="container-uploader-icon" >
+    <label class="uploader-circle">
+        <img [src]="imgSrc" alt="image" *ngIf="loaded; else imgloaded">
+        <ng-template #imgloaded>
+            <mat-icon>add_circle_outline</mat-icon>
+        </ng-template>
+
+        <input #uploader type="file" [accept]="acceptFile" (change)="getFileEvent($event)">
+    </label>
+    <button *ngIf="loaded" class="btn icon-input-uploader" type="button" (click)="onRemoveimg()">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>

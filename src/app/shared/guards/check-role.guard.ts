@@ -24,15 +24,22 @@ export class CheckRoleGuard implements CanActivate {
     | boolean
     | UrlTree {
     const currentUser: User | undefined | void = this.authService.getUser();
+
     const canPermission =
       route.data['role'] &&
-      route.data['role'].some(
-        (role: string, i: number) => role === currentUser?.role[i]
+      currentUser?.role &&
+      route.data['role'].some((role: string) =>
+        currentUser.role.some((item: string) => item === role)
       );
+
     //verify role of user, You must change the logic, to the one you need
     if (canPermission) return true;
     else {
-      this.router.navigate(['/', 'not-permission']);
+      if (currentUser?.role) {
+        this.router.navigate(['/', 'not-permission']);
+        return false;
+      }
+      this.router.navigate(['/', 'auth', 'login']);
       return false;
     }
   }

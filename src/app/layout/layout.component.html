@@ -3,47 +3,47 @@
      ==================================================== -->
 <div class="grid-container">
     <!-- ====================================================
-        Init Header - you add style in -> src/assets/css/core/header
-     ==================================================== -->
+            Init Header - you add style in -> src/assets/css/core/header
+         ==================================================== -->
     <div class="menu-icon" (click)="openMenu()">
         <i class="header__menu"></i>
     </div>
     <app-header></app-header>
     <!-- ====================================================
-        End Header 
-     ==================================================== -->
+            End Header 
+         ==================================================== -->
     <!-- ====================================================
-        Init Aside (left menu)- you add style in -> src/assets/css/core/sidebar
-     ==================================================== -->
-    <aside class="sidenav" [ngClass]="{'sidenav-active': isSpinnerVisible | async}">
+            Init Aside (left menu)- you add style in -> src/assets/css/core/sidebar
+         ==================================================== -->
+    <aside class="sidenav" [ngClass]="{'sidenav-active': isMenuiIconVisible | async}">
         <div class="sidenav__close-icon" (click)="closeMenu()">
             <i class="aside-icon-close sidenav__brand-close"></i>
         </div>
         <app-sidebar></app-sidebar>
     </aside>
     <!-- ====================================================
-         End Aside (left menu)
-     ==================================================== -->
+             End Aside (left menu)
+         ==================================================== -->
     <!-- ====================================================
-         Init Pages Wrapper
-     ==================================================== -->
+             Init Pages Wrapper
+         ==================================================== -->
     <main class="main">
         <!-- ====================================================
-                Init Container Fluid and Contents Pages
-            ==================================================== -->
+                    Init Container Fluid and Contents Pages
+                ==================================================== -->
         <router-outlet></router-outlet>
         <!-- ====================================================
-                End Container Fluid and Contents Pages
-            ==================================================== -->
+                    End Container Fluid and Contents Pages
+                ==================================================== -->
     </main>
     <!-- ====================================================
-         End Pages Wrapper
-     ==================================================== -->
+             End Pages Wrapper
+         ==================================================== -->
     <!-- ====================================================
-         Init Footer layout
-     ==================================================== -->
+             Init Footer layout
+         ==================================================== -->
     <app-footer></app-footer>
     <!-- ====================================================
-         End Foter layout
-     ==================================================== -->
+             End Foter layout
+         ==================================================== -->
 </div>

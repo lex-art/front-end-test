@@ -1,6 +1,6 @@
 export interface UserService {
   succes: boolean;
-  access_token: string;
+  accessToken: string;
   user: User;
 }
 export interface UserForgotPassword{
@@ -13,10 +13,11 @@ export interface User {
   fisrtName: string;
   lastName: string;
   email: string;
-  role: Array<string>
+  role: Array<string>;
+  urlPhoto?: string;
 }
 
 export interface SimpleResponse {
-  succes: boolean
+  success: boolean
   message: string
 }

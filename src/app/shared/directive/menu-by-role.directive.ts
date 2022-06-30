@@ -1,9 +1,4 @@
-import {
-  Directive,
-  Input,
-  TemplateRef,
-  ViewContainerRef,
-} from '@angular/core';
+import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Directive({
@@ -26,10 +21,10 @@ export class MenuByRoleDirective {
     const canPermission =
       roles &&
       roles.some(
-        (role: string, i: number) =>
-          role === (this.rolCurrentUser && this.rolCurrentUser[i])
+        (role: string) =>
+         this.rolCurrentUser?.some((item: string) => item === role)
       );
     if (canPermission) this.viewContainer.createEmbeddedView(this.templateref);
-    else this.viewContainer.remove()
+    else this.viewContainer.remove();
   }
 }
