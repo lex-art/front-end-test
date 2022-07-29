@@ -21,14 +21,14 @@
       <mat-spinner diameter="50"></mat-spinner>
   </div>
   <div class="table-pagination" *ngIf="!isLoadingResults">
-      <button class="btn btn-primary btn-prev" (click)="prevPage()" [disabled]="previous === null">
-          <i class="arrow-left"></i>
+    <button class="btn btn-primary btn-prev" (click)="prevPage()" [disabled]="configTable?.previous === null">
+        <i class="arrow-left"></i>
       </button>
       <div class="contain-pages">            
               <samp class="btn btn-pages btn-page-active" >{{'Página '+pageActual + " de " + pages }}</samp>
       </div>
-      <button class="btn btn-primary btn-next" (click)="nextPage()"  [disabled]="next === null">
-          <i class="arrow-right"></i>
+      <button class="btn btn-primary btn-next" (click)="nextPage()" [disabled]="configTable?.next === null">
+        <i class="arrow-right"></i>
       </button>
   </div>
 

@@ -19,6 +19,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { DialogModalComponent } from './shared/conmonComponents/dialog-modal/dialog-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { ResizeMenuDirective } from './shared/directive/resize-menu.directive';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { MatMenuModule } from '@angular/material/menu';
     NotFoundComponent,
     MenuByRoleDirective,
     SubMenuComponent,
-    DialogModalComponent
+    DialogModalComponent,
+    ResizeMenuDirective
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatDialogModule,
-    MatMenuModule   
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     {

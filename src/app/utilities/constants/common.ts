@@ -11,4 +11,5 @@ export const COMMON = {
     EXTENCION_EXCEL: ".xlsx",
     EXTENCION_PDF: ".pdf",
     REDIRECT: "redirect",
+    MIN_WIDTH_SCREEN: 768
 }

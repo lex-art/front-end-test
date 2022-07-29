@@ -28,7 +28,8 @@ export class SubMenuComponent implements OnInit, OnDestroy {
   @Input() routeSidebar: IRoute | undefined;
   public isOpen: boolean = false;
   public subscriberEnd: Subscription | undefined;
-
+  public isMenuSmall = this.conmonService.isMenuSmall;
+  public isMenuiIconVisible = this.conmonService.isOpen;
   constructor(private router: Router, private conmonService: ConmonService) {}
 
   ngOnInit(): void {

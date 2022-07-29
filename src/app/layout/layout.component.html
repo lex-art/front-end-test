@@ -1,7 +1,7 @@
 <!-- ====================================================
     Main Wrapper - style you can find in -> src/assets/css/main
      ==================================================== -->
-<div class="grid-container">
+<div class="grid-container" [ngClass]="{'grid-container-small': isMenuSmall | async}" appResizeMenu >
     <!-- ====================================================
             Init Header - you add style in -> src/assets/css/core/header
          ==================================================== -->
@@ -17,8 +17,8 @@
          ==================================================== -->
     <aside class="sidenav" [ngClass]="{'sidenav-active': isMenuiIconVisible | async}">
         <div class="sidenav__close-icon" (click)="closeMenu()">
-            <i class="aside-icon-close sidenav__brand-close"></i>
-        </div>
+            <i class="sidenav__brand-close"></i>
+        </div>   
         <app-sidebar></app-sidebar>
     </aside>
     <!-- ====================================================
@@ -28,6 +28,11 @@
              Init Pages Wrapper
          ==================================================== -->
     <main class="main">
+        <div class="activate-toggle">
+             <button class="btn btn-primary btn-toggle" (click)="smallMenu()">
+                <i class="arrow-left"></i>
+            </button>
+        </div> 
         <!-- ====================================================
                     Init Container Fluid and Contents Pages
                 ==================================================== -->

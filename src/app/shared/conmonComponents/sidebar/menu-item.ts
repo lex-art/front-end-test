@@ -10,6 +10,12 @@ export const ROUTES: Array<IRoute> = [
         route: '/page-two',
         text: 'Sub Menu 1',
         role: ['admin'],
+      },
+      {
+        icon: 'icon user',
+        route: '/pagination',
+        text: 'Sub Menu 2',
+        role: ['admin'],
       }
     ],
   },

@@ -3,23 +3,20 @@
     <img class="logo-app" src="../../../../assets/img/AngularJS_logo.svg" alt="logo-header">
   </a>
 </div>
-<nav class="sidenav-list">
-  <ul class="list-menu">
-    <ng-container *ngFor="let item of linksSidebar">
-      <app-submenu [routeSidebar]="item" *ngIf="!item.closeSeesion; else  loggedOut"> </app-submenu>
-
-      <ng-template #loggedOut>
-        <li class="list-menu-item">
-          <div class="list-menu-btn list-button--click" (click)="closeSeesion()">
-            <div class="arrow-contain">
-              <a class="nav-link text-sm" [routerLink]="">
-                <i [ngClass]="item.icon"></i>
-                <samp>{{item?.text}}</samp>
-              </a>
-            </div>
-          </div>
+  <nav class="sidenav-list">
+    <ul class="list-menu">
+      <ng-container *ngFor="let item of linksSidebar">
+        <app-submenu [routeSidebar]="item" *ngIf="!item.closeSeesion; else  loggedOut"> </app-submenu> 
+        <ng-template #loggedOut>
+          <li [ngClass]="{'list-menu-item': !(isMenuSmall | async), 'list-menu-item-small': isMenuSmall | async, 'visibility-text': isMenuiIconVisible | async }">
+            <a [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"
+              (click)="closeSeesion()" [routerLink]="item?.route">
+                <i class="{{item?.icon}}"></i>
+                <span>{{item?.text}}</span>
+            </a>
         </li>
-      </ng-template>
-    </ng-container>
-  </ul>
-</nav>
+        </ng-template>
+      </ng-container>
+    </ul>
+  </nav>
+  

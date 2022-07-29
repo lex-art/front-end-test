@@ -170,13 +170,8 @@
 
 //cards
 .card-container-table{
-  background-color: $white;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  margin: 1em;
-  min-height: 97%; 
-  border-radius: 0.5em;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  min-height: 84vh; 
+  max-height: 84vh; 
 }
 .card-flex-box-container{
   background-color: $white;

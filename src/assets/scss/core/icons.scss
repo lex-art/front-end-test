@@ -3,28 +3,29 @@
     font-size: 24px;
     width: 1em;
     height: 1em;
-    margin: 0.2em;  
+    padding: 14px; 
   }
-  .icon-md{
-    font-size: 30px;
+  .icon-sm{
+    font-size: 24px;
     width: 1em;
     height: 1em;
-    margin: 0.2em;
+    padding: 10px; 
   }
   .icon-xl{
     font-size: 36px;
     width: 1em;
     height: 1em;
-    margin: 0.2em;
+   // padding: 0.2em;
   }
   .arrow-down:active {
     transform: scale(0.8);
   }
   
   .arrow-down {
-    font-size: 24px !important;
-    width: 0.6em !important;
-    height: 0.6em !important;
+    font-size: 24p;
+    width: 1rem;
+    height: 1rem;
+    padding: 0.33em;
     background: url(../../icons/arow-down.svg) no-repeat;
   }
   .home{
@@ -44,16 +45,17 @@
   .arrow-left {
     display: block;
     text-align: center;
-    width: 1.2rem;
+    width: .8rem;
     height: 1.2rem;
     margin-left: -5px;
     background: url(../../icons/arow-left.svg) no-repeat;
   }
+  
   .arrow-right {
     display: block;
     text-align: center;
-    width: 1.2rem;
+    width: .7rem;
     height: 1.2rem;
-    margin-left: -2px;
+    margin-right: 2px;
     background: url(../../icons/arow-rigth.svg) no-repeat;
   }

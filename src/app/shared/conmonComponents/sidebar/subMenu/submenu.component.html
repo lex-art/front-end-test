@@ -1,26 +1,19 @@
-<li class="list-menu-item" *appMenuByRoleDirective="routeSidebar?.role">
-    <div class="list-menu-btn list-button--click" routerLinkActive="active-link"
-        [routerLinkActiveOptions]="{exact: true}"
+<li [ngClass]="{'list-menu-item': !(isMenuSmall | async) , 'list-menu-item-small': isMenuSmall | async, 'visibility-text': isMenuiIconVisible | async }"
+    *appMenuByRoleDirective="routeSidebar?.role">
+    <a [routerLink]="routeSidebar?.route" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}"
         (click)="routeSidebar?.subMenu ? openSubMenu() : redirectLink(routeSidebar?.route)">
-        <div class="arrow-contain">
-            <a class="nav-link text-sm" [routerLink]="routeSidebar?.route">
-                <i class="{{routeSidebar?.icon}}"></i>
-
-                <samp class="title-nav-link">{{routeSidebar?.text}}</samp>
-
-            </a>
-            <i class="icon arrow-down" *ngIf="routeSidebar?.subMenu"></i>
-        </div>
-
-    </div>
+        <i class="{{routeSidebar?.icon}}"></i>
+        <span>{{routeSidebar?.text}} <i class="arrow-down" *ngIf="routeSidebar?.subMenu"></i></span>
+    </a>
     <div [@openClose]="isOpen ? true : false" *ngIf="routeSidebar?.subMenu">
-        <ul class="list-sub-item">
+        <ul [ngClass]="{'list-sub-item': !(isMenuSmall | async), 'list-sub-item-small': isMenuSmall | async}">
             <ng-container *ngFor="let subItem of routeSidebar?.subMenu">
-                <li class="list-inside" *appMenuByRoleDirective="subItem.role">
-                    <a class="nav-link text-sm" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"
+                <li *appMenuByRoleDirective="subItem.role">
+                    <a class="text-sm" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active-link"
                         (click)="redirecSubMenu()" [routerLink]="subItem?.route">
-                        <i class="{{subItem?.icon}}"></i>
-                        <samp>{{subItem?.text}}</samp></a>
+                        <i class="{{subItem?.icon + ' icon-sm'}}"></i>
+                        <span >{{subItem?.text}}</span>
+                    </a>
                 </li>
             </ng-container>
         </ul>
